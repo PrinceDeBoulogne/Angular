@@ -1,0 +1,16 @@
+
+
+
+<div *ngIf="album" class="card border border-primary">
+    <img class="card-img-top" src="../assets/images/default_image.png" alt="Group Music">
+    <div class="card-body">
+        <h4 class="card-title">{{ album.name }}</h4>
+        <em><p class="card-text">{{ album.ref }}</p></em>
+
+    </div>
+    <div class="row content col-sm-12 video text-center">
+        <h5 class="text-center">{{ album.title }}</h5>
+        <p class="card-text">{{ album.description }}</p>
+    </div>
+    <a routerLink="/albums" class="btn btn-primary" (click)="play(album)">Play >> </a>
+</div>

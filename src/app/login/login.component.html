@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">{{ title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link" routerLink="/login" routerLinkActive="active">Se connecter</a>-->
+<!--            </li>-->
+        </ul>
+        <app-search (searchAlbums)="search($event)"></app-search>
+
+
+    </div>
+</nav>
+
+<form (ngSubmit)="onSubmit(formLogin)" #formLogin="ngForm">
+    <p *ngIf="messageError">{{ messageError }}</p>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input name="email" ngModel email required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input name="password" ngModel required type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button [disabled]="formLogin.invalid" type="submit" class="btn btn-primary">Submit</button>
+</form>
+

@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">{{ title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+        </ul>
+        <app-search (searchAlbums)="search($event)"></app-search>
+
+
+    </div>
+</nav>
+
+
+<h1>{{ titlePage }}</h1>
+
+<div class="row content">
+
+    <div class="col-sm-4 video">
+        <!-- AlbumDetails communication parent vers enfant -->
+        <app-album-details [album]="selectedAlbum" (onPlay)="playParent($event)" ></app-album-details>
+    </div>
+
+
+
+    <div *ngIf="albums" class="col-sm-8 music">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+
+        </nav><!-- .pagination -->
+        <!--    <button type="button" class="btn btn-lg btn-danger">You are in an anonymous mode.</button>-->
+        <div *ngFor="let album of albums" class="card">
+            <div class="card-header">
+                {{ album.ref }} <span class="badge badge-info" *ngIf="album == playAlbum">Play</span>
+            </div>
+            <div class="card-body" (click)="onSelect(album)">
+                <h5 class="card-title">{{ album.name }} / <em><a class="text-info" routerLink="/album/{{album.id}}">{{album.title}}</a></em></h5>
+                <p class="card-text">{{ album.description }}</p>
+                <ul *ngIf="album.tags" class="list-inline">
+                    <li class="list-inline-item" *ngFor="let word of album.tags">
+                        <span class="badge badge-info">{{ word }}</span>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-primary" href="#" role="button">fr</a>
+                <a class="btn btn-outline-dark" href="#" role="button">guitar</a>
+
+                <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
+                <small>{{ album.like }}</small>
+                <img class="glyph-icon" src="./assets/svg/si-glyph-timer.svg" />
+                <small>{{ album.duration }} min</small>
+            </div>
+        </div><!-- .card -->
+    </div>
+</div>
