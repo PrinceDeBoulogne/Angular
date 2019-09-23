@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,13 +40,14 @@ const albumsRoutes: Routes = [
     AlbumDetailsComponent,
     SearchComponent,
     LoginComponent,
-    AlbumDescriptionsComponent
+    AlbumDescriptionsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(albumsRoutes),
+    BrowserAnimationsModule
   ],
   providers: [
       AlbumService

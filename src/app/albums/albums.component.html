@@ -7,12 +7,14 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home
+                <a class="nav-link btn" routerLink="/albums" routerLinkActive="active-link">Home
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+                <div [@myAnimation]="isActive ? 'open' : 'close'">
+                <a class="nav-link btn" routerLink="/login" routerLinkActive="active">Login</a>
+                </div>
             </li>
         </ul>
         <app-search (searchAlbums)="search($event)"></app-search>
