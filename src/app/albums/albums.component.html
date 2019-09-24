@@ -11,15 +11,9 @@
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
-            <li class="nav-item active">
-                <div [@myAnimation]="isActive ? 'open' : 'close'">
                 <a class="nav-link btn" routerLink="/login" routerLinkActive="active">Login</a>
-                </div>
-            </li>
         </ul>
         <app-search (searchAlbums)="search($event)"></app-search>
-
-
     </div>
 </nav>
 

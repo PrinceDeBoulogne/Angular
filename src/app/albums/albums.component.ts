@@ -17,22 +17,6 @@ import {
   selector: 'app-albums',
   templateUrl: './albums.component.html',
   styleUrls: ['./albums.component.scss'],
-  animations: [
-    trigger('myAnimation',[
-      // définir l'état open de l'élément HTML
-      state('open', style({
-                            height: '100px',
-                            opacity: 1,
-                            backgroundColor: 'green'
-                          })),
-      // définir l'état close de l'élément HTML
-      state('close', style({
-        height: '100px',
-        opacity: 0.25,
-        backgroundColor: 'yellow'
-        })),
-    ]),
-  ],
 })
 
 

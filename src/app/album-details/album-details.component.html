@@ -12,5 +12,12 @@
         <h5 class="text-center">{{ album.title }}</h5>
         <p class="card-text">{{ album.description }}</p>
     </div>
-    <a routerLink="/albums" class="btn btn-primary" (click)="play(album)">Play >> </a>
+    <li class="nav-item">
+        <div [@myAnimation]="isActive ? 'open' : 'closed'">
+            <a routerLink="/albums" class="btn btn-primary" (click)="play(album)">Play >> </a>
+        </div>
+    </li>
 </div>
+
+
+
